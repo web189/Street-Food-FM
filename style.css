@@ -1,0 +1,723 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: linear-gradient(90deg, #ff9800, #4caf50);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.logo span {
+  color: yellow;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+/* Hero */
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url("img/bg-pattern.png") center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 48px;
+}
+
+.hero p {
+  margin: 20px 0;
+}
+
+.btn {
+  background: #ff5722;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #e64a19;
+}
+
+/* Menu */
+.menu {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.menu h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* ========================= */
+/* MENU CARD PREMIUM STYLE */
+/* ========================= */
+
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* Card Style */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  padding-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.4s ease;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Scroll animation active */
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover naik */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+}
+
+/* Wrapper gambar */
+.card img {
+  width: 100%;
+  height: auto;              /* supaya tidak terpotong */
+  display: block;
+  border-radius: 20px 20px 0 0;
+  transition: transform 0.5s ease;
+}
+
+/* Hover zoom tanpa crop */
+.card:hover img {
+  transform: scale(1.05);
+}
+
+/* Text */
+.card h3 {
+  padding: 15px 0 5px;
+  font-size: 20px;
+}
+
+.card p {
+  padding: 0 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ========================= */
+/* FOOTER INSTAGRAM EFFECT */
+/* ========================= */
+
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 30px 10%;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.powered {
+  font-size: 14px;
+}
+
+.ig-credit {
+  position: relative;
+  font-weight: 600;
+  text-decoration: none;
+  background: linear-gradient(
+    90deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.4s ease;
+  animation: gradientMoveIG 5s linear infinite;
+}
+
+/* Hover efek */
+.ig-credit:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 5px 15px rgba(214,41,118,0.5);
+}
+
+/* Underline animasi */
+.ig-credit::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg,#feda75,#d62976,#4f5bd5);
+  transition: width 0.4s ease;
+}
+
+.ig-credit:hover::after {
+  width: 100%;
+}
+
+/* Gradient bergerak */
+@keyframes gradientMoveIG {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .footer-content {
+    font-size: 13px;
+  }
+}
+
+/* ========================= */
+/* LOADING SCREEN STYLE */
+/* ========================= */
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #ff9800, #ff5722, #4caf50, #2ecc71);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loader-content {
+  text-align: center;
+  color: white;
+}
+
+/* Spinner modern */
+.food-spinner {
+  width: 70px;
+  height: 70px;
+  border: 6px solid rgba(255,255,255,0.3);
+  border-top: 6px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+/* Loading text */
+.loading-text {
+  margin-top: 20px;
+  font-size: 22px;
+  letter-spacing: 2px;
+  animation: pulseText 1.5s infinite;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Text pulse */
+@keyframes pulseText {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* Hide loader */
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ========================= */
+/* LOADER SPLASH CRISPY */
+/* ========================= */
+
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #ff9800, #ff5722);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.crispy-loader {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bola tengah */
+.core {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fff176, #ff9800);
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+  animation: bounceCore 1s ease-in-out infinite alternate;
+  box-shadow: 0 0 30px rgba(255,255,255,0.6);
+}
+
+/* Partikel crispy */
+.particles span {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #fff8e1;
+  border-radius: 50%;
+  opacity: 0;
+  animation: explode 1.5s infinite ease-out;
+}
+
+/* Loading text */
+.loading-text {
+  margin-top: 30px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  animation: pulseText 1.5s infinite;
+}
+
+/* Animasi bola */
+@keyframes bounceCore {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+/* Animasi partikel meledak */
+@keyframes explode {
+  0% {
+    transform: translate(0,0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Text pulse */
+@keyframes pulseText {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Hide loader */
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.card h3 {
+  padding: 15px 0;
+}
+
+.card p {
+  padding: 0 15px 20px;
+}
+
+/* Video */
+.video-section {
+  padding: 80px 10%;
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.video-section video {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 15px;
+}
+
+/* Contact */
+.contact {
+  padding: 80px 10%;
+  text-align: center;
+  background: linear-gradient(90deg, #4caf50, #ff9800);
+  color: white;
+}
+
+.wa {
+  background: #25d366;
+}
+
+.wa:hover {
+  background: #1ebc59;
+}
+
+/* ========================= */
+/* FLOATING WHATSAPP PREMIUM */
+/* ========================= */
+
+.floating-wa {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(45deg, #25d366, #1ebe5d);
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+  z-index: 999;
+  animation: pulse-wa 2s infinite, shake 4s infinite;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.floating-wa:hover {
+  transform: scale(1.15) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.8);
+}
+
+/* Pulse Ring */
+@keyframes pulse-wa {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Shake halus tiap beberapa detik */
+@keyframes shake {
+  0%, 90%, 100% { transform: translateX(0); }
+  92% { transform: translateX(-3px); }
+  94% { transform: translateX(3px); }
+  96% { transform: translateX(-3px); }
+  98% { transform: translateX(3px); }
+}
+
+/* Ripple click effect */
+.floating-wa::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.floating-wa:active::after {
+  transform: scale(1.5);
+  opacity: 1;
+  transition: 0s;
+}
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #222;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+
+/* ========================= */
+/* WA BUTTON ANIMATION STYLE */
+/* ========================= */
+
+.btn.wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(45deg, #25d366, #1ebe5d);
+  padding: 14px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  animation: pulse 2s infinite;
+}
+
+/* Hover Effect */
+.btn.wa:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+}
+
+/* Icon animasi */
+.btn.wa span {
+  font-size: 20px;
+  animation: bounce 1.5s infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ========================= */
+/* HERO ANIMATION PREMIUM */
+/* ========================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(-45deg, #ff9800, #ff5722, #4caf50, #2ecc71);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero p {
+  font-size: 20px;
+  min-height: 30px;
+  margin-bottom: 30px;
+}
+
+.hero-btn {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomIn 1s ease forwards;
+  animation-delay: 2s;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Fade Up */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .hero h1 {
+    font-size: 28px;
+  }
+}
+
+/* ========================= */
+/* BANNER SECTION MODERN */
+/* ========================= */
+
+.banner-section {
+  padding: 80px 10%;
+  text-align: center;
+  background: linear-gradient(90deg, #fff8e1, #e8f5e9);
+}
+
+.banner-section h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Wrapper dengan efek modern */
+.banner-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+/* Rasio 2:1 untuk 200x100 cm */
+.banner-wrapper img {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* Hover efek zoom */
+.banner-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+/* Glow effect */
+.banner-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(255,152,0,0.3), rgba(76,175,80,0.3));
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.banner-wrapper:hover::after {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .banner-section h2 {
+    font-size: 24px;
+  }
+}
