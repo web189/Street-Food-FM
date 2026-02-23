@@ -100,3 +100,25 @@ window.addEventListener("load", function () {
     loader.classList.add("hide");
   }, 2000);
 });
+
+hamburger.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  hamburger.classList.toggle("open");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".navbar nav");
+
+  if (hamburger && nav) {
+
+    hamburger.addEventListener("click", function () {
+      nav.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+
+  }
+
+});
+
